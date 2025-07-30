@@ -21,7 +21,7 @@ if not TELEGRAM_TOKEN:
 
 # ======= GEMINI SETUP =======
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("models/gemini-pro")  # ✅ Fixed model name
+model = genai.GenerativeModel("models/gemini-pro")  # Correct model name
 
 # ======= MESSAGE HANDLER =======
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -43,7 +43,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # ======= MAIN ENTRY =======
 if __name__ == '__main__':
-    keep_alive()  # Start Flask server to keep bot alive (for Replit or web)
+    keep_alive()  # Start Flask server for uptime monitoring
 
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
